@@ -8,7 +8,7 @@ export class ServicioService {
 
   constructor() { }
   Agregar(producto : any){
-    this.ListaProductos.push(producto);
+     this.ListaProductos.push(producto);
   }
   retornarLista(){
     return this.ListaProductos;

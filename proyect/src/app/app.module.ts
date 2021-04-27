@@ -9,6 +9,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Formulario1Component } from './formulario1/formulario1.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { BoletaComponent } from './boleta/boleta.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     ContenidoComponent,
     CarroComponent,
     Formulario1Component,
-    FilterPipe
+    FilterPipe,
+    BoletaComponent
   ],
   imports: [
     BrowserModule,

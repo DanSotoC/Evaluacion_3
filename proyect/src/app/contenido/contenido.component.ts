@@ -11,7 +11,7 @@ import { ServicioService } from '../servicio.service';
 })
 export class ContenidoComponent implements OnInit {
 
-  product = null;
+  product: any;
   page !: number;
   searchText !: string;
   constructor(private productosService : ProductService, private servicioService : ServicioService){}
