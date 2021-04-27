@@ -1,0 +1,113 @@
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal">
+    <i class="bi bi-credit-card-fill"></i>
+</button>
+
+<div class="modal" id="Modal" tabindex="-2" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content modal-lg" style="background-color: rgb(43, 243, 210);">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Datos del Envío</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body modal-lg">
+            <form [formGroup]="formulario">
+                <h2 id="heading2" class="text-danger">Dirección</h2><br>
+                <h3>País: </h3> <input type="text" formControlName="pais" class="form-control" minlength="3" maxlength="10">
+                <div *ngIf="pais?.invalid && (pais?.dirty || pais?.touched)" class="alert alert-danger">
+                    <p *ngIf="pais?.errors?.required">Por favor ingresar un Pais</p>
+                    <p *ngIf="pais?.errors?.minlength">Debe tener mínimo 3 caracteres</p>
+                    <p *ngIf="pais?.errors?.maxlength">Debe tener máximo 50 caracteres</p>
+                </div>
+                <br>
+                <h3>Region: </h3> <input type="text" formControlName="region" class="form-control" minlength="3"
+                    maxlength="50">
+                <div *ngIf="region?.invalid && (region?.dirty || region?.touched)" class="alert alert-danger">
+                    <p *ngIf="region?.errors?.required">Por favor ingresar una Region</p>
+                    <p *ngIf="region?.errors?.minlength">Debe tener mínimo 3 caracteres</p>
+                    <p *ngIf="region?.errors?.maxlength">Debe tener máximo 50 caracteres</p>
+                </div>
+                <br>
+                <h3>Ciudad: </h3> <input type="text" formControlName="ciudad" class="form-control" minlength="3"
+                    maxlength="50">
+                <div *ngIf="ciudad?.invalid && (ciudad?.dirty || ciudad?.touched)" class="alert alert-danger">
+                    <p *ngIf="ciudad?.errors?.required">Por favor ingresar una Ciudad</p>
+                    <p *ngIf="ciudad?.errors?.minlength">Debe tener mínimo 3 caracteres</p>
+                    <p *ngIf="ciudad?.errors?.maxlength">Debe tener máximo 50 caracteres</p>
+                </div>
+                <br>
+                <h3>Calle: </h3> <input type="text" formControlName="calle" class="form-control " minlength="3"
+                    maxlength="50">
+                <div *ngIf="calle?.invalid && (calle?.dirty || calle?.touched)" class="alert alert-danger">
+                    <p *ngIf="calle?.errors?.required">Por favor ingresar un Rut</p>
+                    <p *ngIf="calle?.errors?.minlength">Debe tener mínimo 3 caracteres</p>
+                    <p *ngIf="calle?.errors?.maxlength">Debe tener máximo 50 caracteres</p>
+                </div>
+                <br>
+                <h3>Código Postal: </h3> <input type="number" formControlName="cod_postal" class="form-control " minlength="3"
+                    maxlength="50">
+                <div *ngIf="cod_postal?.invalid && (cod_postal?.dirty || cod_postal?.touched)" class="alert alert-danger">
+                    <p *ngIf="cod_postal?.errors?.required">Por favor ingresar un Rut</p>
+                    <p *ngIf="cod_postal?.errors?.minlength">Debe tener mínimo 3 caracteres</p>
+                    <p *ngIf="cod_postal?.errors?.maxlength">Debe tener máximo 50 caracteres</p>
+                </div>
+                <br>
+                <div class="col-md" >
+                    <div class="card rounded-0 border-0 card2" id="paypage" style="background-color: rgb(43, 243, 210);">
+                        <div class="form-card">
+                            <h2 id="heading2" class="text-danger">Metodo de Pago</h2><br>
+                            <div class="radio-group">
+                                <div class='radio' data-value="credit">
+                                        <img src="https://i.imgur.com/28akQFX.jpg" width="200px" height="60px" style="margin-right: 20px;" >
+                                        <img src="https://i.imgur.com/5QFsx7K.jpg" width="200px" height="60px">
+                                </div> <br>
+                            </div> <label class="pay" style="margin-right: 20px;">Titular de la Tarjeta</label> 
+                                    <input type="text" placeholder="John Smith" formControlName="nombre" class="form-control" minlength="4" maxlength="50">
+                                    <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="alert alert-danger">
+                                        <p *ngIf="nombre?.errors?.required">Por favor ingresar el nombre del Titular</p>
+                                        <p *ngIf="nombre?.errors?.minlength">Debe tener mínimo 4 caracteres</p>
+                                        <p *ngIf="nombre?.errors?.maxlength">Debe tener máximo 50 caracteres</p>
+                                    </div> <br>
+                            <div class="row">
+                                <div class="col-8 col-md-6"> <label class="pay" style="margin-right: 20px;">Card Number</label> 
+                                    <input type="text" formControlName="card" placeholder="0000-0000-0000-0000" minlength="19" maxlength="19">
+                                    <div *ngIf="card?.invalid && (card?.dirty || card?.touched)" class="alert alert-danger">
+                                        <p *ngIf="card?.errors?.required">Por favor ingresar el numero de la tarjeta</p>
+                                        <p *ngIf="card?.errors?.minlength">Debe tener mínimo 19 caracteres</p>
+                                        <p *ngIf="card?.errors?.maxlength">Debe tener máximo 19 caracteres</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-md-6"> <label class="pay" style="margin-right: 20px;">CVV</label> 
+                                    <input type="password" formControlName="cvv" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3"> 
+                                    <div *ngIf="cvv?.invalid && (cvv?.dirty || cvv?.touched)" class="alert alert-danger">
+                                        <p *ngIf="cvv?.errors?.required">Por favor ingresar el código de seguridad</p>
+                                        <p *ngIf="cvv?.errors?.minlength">Debe tener mínimo 3 caracteres</p>
+                                        <p *ngIf="cvv?.errors?.maxlength">Debe tener máximo 3 caracteres</p>
+                                    </div>
+                                </div>
+                            </div> <br>
+                            <div class="row">
+                                <div class="col-md-12"> <label class="pay">Fecha de Expiración</label> </div>
+                                <div class="col-md-12"> 
+                                    <input type="text" name="exp" formControlName="expiracion" placeholder="MM/YY" minlength="5" maxlength="5"> 
+                                    <div *ngIf="expiracion?.invalid && (expiracion?.dirty || expiracion?.touched)" class="alert alert-danger">
+                                        <p *ngIf="expiracion?.errors?.required">Por favor ingresa la fecha de expiración</p>
+                                        <p *ngIf="expiracion?.errors?.minlength">Debe tener mínimo 5 caracteres</p>
+                                        <p *ngIf="expiracion?.errors?.maxlength">Debe tener máximo 5 caracteres</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" (click) = "addData()">Pagar</button>
+        </div>
+      </div>
+    </div>
+</div>
